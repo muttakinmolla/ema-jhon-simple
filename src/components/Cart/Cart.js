@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { Children } from 'react';
+import { Link } from 'react-router-dom';
 import './Cart.css';
 
 const Cart = (porps) => {
-    const { cart } = porps;
+    const { cart, children } = porps;
     let total = 0;
     let shipping = 0;
     let quantity = 0;
@@ -22,6 +23,11 @@ const Cart = (porps) => {
             <p>Total Shipping : ${shipping}</p>
             <p>Total Tax : ${tax}</p>
             <p>Grand Total: ${grandTotal.toFixed(2)}</p>
+            {children}
+            
+            <Link to='/shipping'>
+                <button className='btn btn-secondary'>Proceed Order</button>
+            </Link>
         </div>
     );
 };
